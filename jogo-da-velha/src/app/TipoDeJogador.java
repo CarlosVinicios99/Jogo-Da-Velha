@@ -1,5 +1,6 @@
 package app;
 
-public class TipoDeJogador {
-
+public enum TipoDeJogador {
+	O,
+	X
 }
