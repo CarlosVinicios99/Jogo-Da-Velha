@@ -11,11 +11,11 @@ import javafx.stage.Stage;
 public class Principal extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//URL arquivoFXML = getClass().getResource("/app/jogoDaVelha.fxml");
-		//GridPane raiz = FXMLLoader.load(arquivoFXML);
+		URL arquivoFXML = getClass().getResource("/app/jogoDaVelha.fxml");
+		GridPane raiz = FXMLLoader.load(arquivoFXML);
 		
-		//Scene cena = new Scene(raiz, 300, 300);
-		//primaryStage.setScene(cena);
+		Scene cena = new Scene(raiz, 300, 300);
+		primaryStage.setScene(cena);
 		primaryStage.setTitle("Jogo Da Velha");
 		primaryStage.show();
 	}
