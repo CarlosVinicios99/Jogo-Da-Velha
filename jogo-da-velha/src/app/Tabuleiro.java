@@ -12,21 +12,17 @@ public class Tabuleiro {
 	
 	public String obterJogadorAtual() {
 		if(jogadorAtual == TipoDeJogador.O) {
-			return "Jogador Atual: O";
+			return "O";
 		}
-		return "Jogador Atual: X";
+		return "X";
+	}
+	
+	public String obterRotuloDoCampo(int linha, int coluna) {
+		return matrizDeCampos[linha][coluna].getRotulo();
 	}
 	
 	public boolean realizarJogada(int linha, int coluna) {
-		linha--;
-		coluna--;
-		
-		if(linha < 0 || linha > 2 || coluna < 0 || coluna > 2){
-			return false;
-		}
-		
 		if(!matrizDeCampos[linha][coluna].estaMarcado()) {
-	
 			matrizDeCampos[linha][coluna].marcar(jogadorAtual.toString());
 			alterarJogadorAtual();
 			return true;
