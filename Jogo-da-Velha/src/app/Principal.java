@@ -18,6 +18,7 @@ public class Principal extends Application{
 		principal.getStylesheets().add(CSS);
 		
 		primaryStage.setScene(principal);
+		primaryStage.setResizable(false);
 		primaryStage.setTitle("Jogo Da Velha");
 		primaryStage.show();
 	}

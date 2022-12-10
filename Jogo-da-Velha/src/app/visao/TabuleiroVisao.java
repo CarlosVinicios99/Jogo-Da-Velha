@@ -52,8 +52,13 @@ public class TabuleiroVisao extends GridPane{
 	}
 	
 	private void anunciarResultado() {
+		String CSS = getClass()
+			.getResource("/app/visao/jogoDaVelha.css").toExternalForm();
+		
 		HBox boxResultado = new HBox();
+		boxResultado.getStyleClass().add("resultado");
 		Label labelVencedor = new Label(tabuleiro.anunciarResultado());
+		labelVencedor.getStyleClass().add("textoFinal");
 		labelVencedor.setMaxSize(180, 30);
 		boxResultado.setMaxWidth(300);
 		boxResultado.setMaxHeight(40);
@@ -61,6 +66,7 @@ public class TabuleiroVisao extends GridPane{
 		boxResultado.setSpacing(10);
 		
 		Button botaoNovaPartida = new Button("Reiniciar");
+		botaoNovaPartida.getStyleClass().add("botoesResultado");
 		botaoNovaPartida.setOnAction(e -> {
 			secondStage.close();
 			tabuleiro.reinicializar();
@@ -70,6 +76,7 @@ public class TabuleiroVisao extends GridPane{
 		});
 		
 		Button botaoSair = new Button("Sair");
+		botaoSair.getStyleClass().add("botoesResultado");
 		botaoSair.setOnAction(e -> {
 			System.exit(0);
 		});
@@ -78,6 +85,7 @@ public class TabuleiroVisao extends GridPane{
 		boxResultado.getChildren().addAll(labelVencedor, botaoNovaPartida, botaoSair);
 		
 		Scene cenaResultado = new Scene(boxResultado, 300, 40);
+		cenaResultado.getStylesheets().add(CSS);
 		secondStage.setTitle("Fim De Jogo");
 		secondStage.setScene(cenaResultado);
 		secondStage.setResizable(false);
