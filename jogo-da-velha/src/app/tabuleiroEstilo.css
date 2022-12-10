@@ -1,0 +1,9 @@
+.botoes{
+	-fx-background-color: black;
+	-fx-text-fill: white;
+	-fx-font-size: 28px;
+	-fx-min-width: 100px;
+	-fx-min-height: 100px;
+	-fx-border: 1px;
+	-fx-border-color: white;
+}

@@ -12,6 +12,7 @@ public class Botao extends Button{
 		this.coluna = coluna;
 		setText("-");
 		setMaxSize(100, 100);
+		this.getStyleClass().add("botoes");
 	}
 	
 	public int getLinha() {

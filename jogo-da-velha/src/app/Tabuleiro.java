@@ -44,19 +44,19 @@ public class Tabuleiro {
 		return jogoFinalizado;
 	}
 	
-	public void anunciarResultado() {
+	public String anunciarResultado() {
 		alterarJogadorAtual();
 		
 		if(todosOsCamposMarcados()) {
-			System.out.println("Empate!");
+			return "Empate!";
 		}
 		
 		else if(jogadorAtual == TipoDeJogador.O) {
-			System.out.println("Vencedor: O");
+			return "Vencedor: O";
 		}
 		
 		else{
-			System.out.println("Vencedor: X");
+			return "Vencedor: X";
 		}
 		
 	}

@@ -1,12 +1,22 @@
 package app;
 
+import java.util.ArrayList;
+
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
+
 public class TabuleiroVisao extends GridPane{
 	
 	private Tabuleiro tabuleiro = new Tabuleiro();
+	private Stage secondStage = new Stage();
+	private ArrayList<Botao> botoes = new ArrayList<Botao>();
 	
 	public TabuleiroVisao() {
 		criarGrid();
@@ -26,10 +36,52 @@ public class TabuleiroVisao extends GridPane{
 				Botao botao = new Botao(linha, coluna);
 				botao.setOnAction(e -> {
 					alterarRotuloBotao(botao);
+					checarSituacaoAtualDoJogo();
 				});
 				add(botao, linha, coluna);
+				botoes.add(botao);
 			}
 		}	
+	}
+	
+	private void checarSituacaoAtualDoJogo() {
+		if(tabuleiro.jogoFoiFinalizado()) {
+			anunciarResultado();
+		}
+	}
+	
+	private void anunciarResultado() {
+		HBox boxResultado = new HBox();
+		Label labelVencedor = new Label(tabuleiro.anunciarResultado());
+		labelVencedor.setMaxSize(180, 30);
+		boxResultado.setMaxWidth(300);
+		boxResultado.setMaxHeight(40);
+		boxResultado.setAlignment(Pos.BOTTOM_RIGHT);
+		boxResultado.setSpacing(10);
+		
+		Button botaoNovaPartida = new Button("Reiniciar");
+		botaoNovaPartida.setOnAction(e -> {
+			secondStage.close();
+			tabuleiro.reinicializar();
+			for(Botao botao: botoes) {
+				botao.setText("-");
+			}
+		});
+		
+		Button botaoSair = new Button("Sair");
+		botaoSair.setOnAction(e -> {
+			System.exit(0);
+		});
+		botaoNovaPartida.setMaxSize(80, 20);
+		botaoSair.setMaxSize(80, 20);
+		boxResultado.getChildren().addAll(labelVencedor, botaoNovaPartida, botaoSair);
+		
+		Scene cenaResultado = new Scene(boxResultado, 300, 40);
+		secondStage.setTitle("Fim De Jogo");
+		secondStage.setScene(cenaResultado);
+		secondStage.setResizable(false);
+		secondStage.show();
+		
 	}
 	
 	private void alterarRotuloBotao(Botao botao) {
