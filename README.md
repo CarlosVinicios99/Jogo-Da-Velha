@@ -24,7 +24,7 @@
 
 ## Tela Fim De Jogo
 <p>
-  <img src = "https://github.com/CarlosVinicios99/Jogo-Da-Velha/blob/main/imagens/Captura%20de%20tela%20de%202022-12-10%2019-34-31.png?raw=true" alt = "Tela De Fim De Jogo">
+  <img src = "https://github.com/CarlosVinicios99/Jogo-Da-Velha/blob/main/imagens/Captura%20de%20tela%20de%202022-12-10%2019-34-31.png?raw=true" alt = "Tela De Fim De jogo">
 </p>
 <hr>
 
